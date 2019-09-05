@@ -4,7 +4,7 @@ This project will deal with categorising grow times, biome occurrences, etc. of 
 <br>
 In the game, plants and trees may be sown and cultivated from seed and may also grow naturally depending on season and chosen biome. Some tree varieties may also yield fruit.
 <br>
-(Tracking fruit-tree relations specifically is not planned, as they are few and fairly obvious (apples from apple trees, coconuts from palm trees); similar functionality can be achieved with matching tags.
+<sub>Tracking fruit<->tree relations specifically is not planned, as they are few and fairly obvious (apples from apple trees, coconuts from palm trees); similar functionality can be achieved with matching tags.</sub>
 <br>
 <ul>Current planned features
   <li>login with username+password for item tracking and/or admin functionality</li>
