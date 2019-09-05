@@ -1,4 +1,7 @@
 # Odd Realm Botany Index
+<br>---<br>
+feedback may be given in finnish or english
+<br>---<br>
 
 This project will deal with categorising grow times, biome occurrences, etc. of various crops (and trees) in the colony-building game Odd Realm. 
 <br>
