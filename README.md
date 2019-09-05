@@ -6,7 +6,7 @@ In the game, plants and trees may be sown and cultivated from seed and may also 
 <br>
 <sub>Tracking fruit<->tree relations specifically is not planned, as they are few and fairly obvious (apples from apple trees, coconuts from palm trees); similar functionality can be achieved with matching tags.</sub>
 <br>
-<ul>Current planned features
+Current planned features<ul>
   <li>login with username+password for item tracking and/or admin functionality</li>
   <li>adding plants and tags (admin-only?)</li>
   <li>searching for botanical items based on attributes (grow time/season/biome/other tags?)</li>
