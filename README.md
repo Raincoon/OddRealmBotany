@@ -11,7 +11,7 @@ In the game, plants and trees may be sown and cultivated from seed and may also 
 <br><br>
 Current planned features<ul>
   <li>login with username+password for item tracking and/or admin functionality</li>
-  <li>adding plants and tags (admin-only?)</li>
+  <li>adding/editing/removing entries for plants and tags (admin-only?)</li>
   <li>searching for botanical items based on attributes (grow time/season/biome/other tags?)</li>
 </ul>
 <br>
