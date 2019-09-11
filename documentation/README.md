@@ -17,4 +17,4 @@ Current planned features<ul>
 <br>
 The planned database's relationship diagram:
 <br>
-<img src="https://i.imgur.com/r11WgQM.png" alt="the planned database structure">
+<img src="./DBdiagram.png" alt="the planned database structure">
