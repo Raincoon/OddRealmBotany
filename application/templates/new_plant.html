@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body%}
-<p></p>
+<p>No input validation yet, be nice <3</p>
 <form method="POST" action="{{ url_for('plant_create') }}">
         Name: <input type="text" name="name" required maxlength="50"/><br>
-        Matures in how many hours? <input type="number" name="grow_time_hrs" required min="0"/><br>
-        <input type="checkbox" name="is_tree"> the plant is a tree.<br> 
+        Matures in how many hours? <input type="number" name="grow_time_hrs" required min="0" max="9000"/><br>
+        This plant is a tree <input type="checkbox" name="is_tree"><br> 
         <input type="submit" value="Add"/>
 </form>
 {% endblock%}

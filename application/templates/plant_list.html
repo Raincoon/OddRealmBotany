@@ -29,8 +29,15 @@ tr:nth-child(odd) {
         <td>{{ plant.name }}</td>
         <td>{{ plant.mature_time }}</td>
         {% if plant.is_tree == true %}
-        <td>Yes!</td>
+        <td>✓</td>
+        {% else %}
+        <td>x</td>
         {% endif %}
+        <td style="background-color: white">
+                <form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
+                    <input type="submit" value="🗑️"/>
+                </form>
+        </td>
     </tr>
     {% endfor %}
   </table>

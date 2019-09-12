@@ -15,6 +15,8 @@ Current planned features<ul>
   <li>searching for botanical items based on attributes (grow time/season/biome/other tags?)</li>
 </ul>
 <br>
+<a href="https://oddrealmbotany.herokuapp.com/">Link to the Heroku app</a>
+<br>
 The planned database's relationship diagram:
 <br>
 <img src="./documentation/DBdiagram.png" alt="the planned database structure">

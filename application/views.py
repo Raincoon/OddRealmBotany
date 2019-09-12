@@ -10,6 +10,7 @@ def index():
 def new_plant():
     return render_template("new_plant.html")
 
+# adding a plant entry
 @app.route("/plants/", methods=["POST"])
 def plant_create():
     name = request.form.get("name")
@@ -17,9 +18,19 @@ def plant_create():
     tree = False
     if request.form.get("is_tree") == 'on' : tree = True
 
-    t = Plant(name, hrs, tree)
+    p = Plant(name, hrs, tree)
 
-    db.session().add(t)
+    db.session().add(p)
+    db.session().commit()
+  
+    return redirect(url_for("index"))
+
+# removing a plant entry
+@app.route("/plants/<remove_id>/", methods=["POST"])
+def plant_remove(remove_id):
+
+    p = Plant.query.get(remove_id)
+    db.session().delete(p)
     db.session().commit()
   
     return redirect(url_for("index"))
