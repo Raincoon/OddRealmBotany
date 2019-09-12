@@ -1,6 +1,6 @@
 # Odd Realm Botany Index  
 
----  
+\---  
 Feedback may be given in both finnish and english  
 \---  
 
