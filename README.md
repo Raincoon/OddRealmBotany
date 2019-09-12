@@ -1,22 +1,23 @@
-# Odd Realm Botany Index
-<br>---<br>
-Feedback may be given in both finnish and english
-<br>---<br>
+# Odd Realm Botany Index  
 
-This project will deal with categorising grow times, biome occurrences, etc. of various crops (and trees) in the colony-building game Odd Realm. 
-<br>
-In the game, plants and trees can be sown and cultivated from seed and may also grow naturally depending on season and chosen biome. Some tree varieties may also yield fruit.
-<br>
+---  
+Feedback may be given in both finnish and english  
+\---  
+
+This project will deal with categorising grow times, biome occurrences, etc. of various crops (and trees) in the colony-building game Odd Realm.  
+In the game, plants and trees can be sown and cultivated from seed and may also grow naturally depending on season and chosen biome. Some tree varieties may also yield fruit.  
 <sub>Tracking fruit<->tree relations specifically is not planned, as such occurrences are few and fairly obvious (apples from apple trees, coconuts from palm trees); similar functionality can be achieved with matching tags.</sub>
-<br><br>
-Current planned features<ul>
-  <li>login with username+password for item tracking</li>
-  <li>adding/editing/removing entries for plants and tags</li>
-  <li>searching for botanical items based on attributes (grow time/season/biome/other tags?)</li>
-</ul>
-<br>
-<a href="https://oddrealmbotany.herokuapp.com/">Link to the Heroku app</a>
-<br>
-The planned database's relationship diagram:
-<br>
-<img src="./documentation/DBdiagram.png" alt="the planned database structure">
+
+
+
+Current planned features  
+ - login with username+password for item tracking  
+ - adding/editing/removing entries for plants and tags  
+ - searching for botanical items based on attributes (grow time/season/biome/other tags?)  
+ 
+[Link to the Heroku app](https://oddrealmbotany.herokuapp.com/)
+
+
+
+The planned database's relationship diagram:  
+![the planned database structure](./documentation/DBdiagram.png "The Planned Database")
