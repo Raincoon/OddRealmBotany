@@ -20,4 +20,5 @@ Current planned features
 
 
 The planned database's relationship diagram:  
-![the planned database structure](./documentation/DBdiagram.png "The Planned Database")
+![the planned database structure](./documentation/DBdiagram.png "The Planned Database")  
+[Link to the user stories file](./documentation/userstories.md) (not sure what the preferred format is on these)
