@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+table{
+    width:50%;
+    border-collapse: collapse;
+}
+th {
+    text-align: left;
+    background-color: #aaa;
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+</style>
+
+<table>
+    <tr>
+        <th>Name </th>
+        <th>Mature time </th>
+        <th>Tree?</th>
+    </tr>
+    {% for plant in plants %}
+    <tr>
+        <td>{{ plant.name }}</td>
+        <td>{{ plant.mature_time }}</td>
+        {% if plant.is_tree == true %}
+        <td>Yes!</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
