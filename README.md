@@ -16,7 +16,7 @@ Current planned features
  - sorting/searching for botanical items based on attributes (grow time/season/biome/other tags?)  
  
 [Link to the Heroku app](https://oddrealmbotany.herokuapp.com/)  
-Short instructions to Heroku:  
+Short instructions for Heroku:  
 You may either log in with username: 'user' password: 'password' or create your own account by clicking on the 'Sign up' link.  
 If you do create your own test user, keep in mind that while passwords are stored as salted hashes, usernames are stored in plaintext.
 
