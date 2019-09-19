@@ -43,5 +43,8 @@ login_manager.login_message = "You need to be logged in to use this functionalit
 def load_user(user_id):
     return User.query.get(user_id)
 
-# Create all tables
-db.create_all()
+# Create tables
+try: 
+    db.create_all()
+except:
+    pass
