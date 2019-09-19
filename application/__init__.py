@@ -1,4 +1,6 @@
 # Imports
+import os
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -6,9 +8,12 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
-# Configs for SQLAlchemy
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///plants.db"
-app.config["SQLALCHEMY_ECHO"] = True
+# Environmental configs
+if os.environ.get("HEROKU"):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///plants.db"
+    app.config["SQLALCHEMY_ECHO"] = True
 
 # This is the object that we're importing everywhere and issuing commands to
 db = SQLAlchemy(app)
