@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('auth_new_user') }}">
+    <p>Register a new user:</p>
+  <table>
+    {% for field in form %} <!--render form fields-->
+    <tr>
+      <td>{{ field.label }}</td>
+      <td>{{ field }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="2">
+        {{ error }}<br>
+	<input type="submit" value="Submit"/>
+      </td>
+    </tr>
+</form>
+{% endblock %}

@@ -1,11 +1,29 @@
 {% extends "layout.html" %}
 
 {% block body%}
-<p>No input validation yet, be nice <3</p>
+<style>
+table{
+    width:50%;
+    border-collapse: collapse;
+}
+</style>
+
+
 <form method="POST" action="{{ url_for('plant_create') }}">
-        Name: <input type="text" name="name" required maxlength="50"/><br>
-        Matures in how many hours? <input type="number" name="grow_time_hrs" required min="0" max="9000"/><br>
-        This plant is a tree <input type="checkbox" name="is_tree"><br> 
+        Name: {{ form.name }} 
+        <br>
+        Matures in how many hours? {{ form.mature_time }} 
+        <br>
+        This plant is a tree {{ form.is_tree }}
+        <br>
+        <!-- validator error list-->
+        {% for field in form %}
+        </ul>
+                {% for error in field.errors %}
+                <li>{{ field.label}} {{ error }}</li>
+                {% endfor %}
+        </ul>
+       {% endfor %}
         <input type="submit" value="Add"/>
 </form>
-{% endblock%}
+{% endblock %}
