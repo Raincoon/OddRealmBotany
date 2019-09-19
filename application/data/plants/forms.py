@@ -12,3 +12,5 @@ class PlantForm(FlaskForm):
 
     class Meta:
         csrf = False
+
+

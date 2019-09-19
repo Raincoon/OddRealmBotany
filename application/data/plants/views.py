@@ -39,7 +39,32 @@ def plant_create():
   
     return redirect(url_for("plant_list"))
 
-# modifying a plant entry TBA
+# modifying a plant entry
+@app.route("/plants/<edit_id>", methods=["GET","POST"])
+@login_required
+def plant_edit(edit_id):
+    p = Plant.query.get(edit_id)
+    if request.method == "GET":
+        return render_template("edit_plant.html", plant=p, form = PlantForm(obj=p))
+
+    form = PlantForm(request.form)
+    if not form.validate():
+            return render_template("edit_plant.html", plant=p, form = form)
+
+    
+    name = form.name.data
+    hrs = form.mature_time.data
+    tree = form.is_tree.data
+
+    p.name = name
+    p.mature_time = hrs
+    p.is_tree = tree
+
+    db.session().commit()
+    return redirect(url_for("plant_list"))
+
+
+
 
 # removing a plant entry
 @app.route("/plants/remove/<remove_id>/", methods=["POST"])

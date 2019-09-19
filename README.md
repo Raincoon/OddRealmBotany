@@ -11,8 +11,8 @@ In the game, plants and trees can be sown and cultivated from seed and may also 
 
 
 Current planned features  
- - login with username+password for item tracking  
- - adding/editing/removing entries for plants and tags  
+ - login with username+password for plant tracking ✓ 
+ - adding/editing/removing entries for plants and tags (plants ✓ , tags TBA) 
  - sorting/searching for botanical items based on attributes (grow time/season/biome/other tags?)  
  
 [Link to the Heroku app](https://oddrealmbotany.herokuapp.com/)

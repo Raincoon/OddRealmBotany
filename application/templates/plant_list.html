@@ -34,9 +34,14 @@ tr:nth-child(odd) {
         <td>x</td>
         {% endif %}
         <td style="background-color: white">
-                <form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
-                    <input type="submit" value="🗑️"/>
-                </form>
+            <form method="GET" action="{{ url_for('plant_edit', edit_id=plant.id) }}">
+                    <input type="submit" value="Edit"/>
+            </form> 
+        </td>
+        <td style="background-color: white">
+            <form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
+                <input type="submit" value="🗑️"/>
+            </form>
         </td>
     </tr>
     {% endfor %}
