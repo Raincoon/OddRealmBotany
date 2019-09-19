@@ -15,7 +15,10 @@ Current planned features
  - adding/editing/removing entries for plants and tags (plants ✓ , tags TBA) 
  - sorting/searching for botanical items based on attributes (grow time/season/biome/other tags?)  
  
-[Link to the Heroku app](https://oddrealmbotany.herokuapp.com/)
+[Link to the Heroku app](https://oddrealmbotany.herokuapp.com/)  
+Short instructions to Heroku:  
+You may either log in with username: 'user' password: 'password' or create your own account by clicking on the 'Sign up' link.  
+If you do create your own test user, keep in mind that while passwords are stored as salted hashes, usernames are stored in plaintext.
 
 
 
