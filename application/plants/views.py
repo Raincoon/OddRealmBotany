@@ -2,8 +2,8 @@ from flask import redirect, render_template, request, url_for
 from flask_login import login_required, current_user
 
 from application import app, db
-from application.data.plants.models import Plant
-from application.data.plants.forms import PlantForm
+from application.plants.models import Plant
+from application.plants.forms import PlantForm
 
 # plant list of user's plants
 @app.route("/garden", methods=["GET"])

@@ -21,10 +21,10 @@ db = SQLAlchemy(app)
 # adress space
 from application import views
 from application.auth import views
-from application.data.plants import views
+from application.plants import views
 
 # database tables
-from application.data.plants import models
+from application.plants import models
 from application.auth import models 
 
 # login functionality

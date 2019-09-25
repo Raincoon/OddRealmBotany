@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for
 from flask_login import current_user
 
 from application import app, db
-from application.data.plants.models import Plant
+from application.plants.models import Plant
 
 # landing page,
 @app.route("/", methods=["GET"])
