@@ -1,31 +1,61 @@
 <!DOCTYPE html>
-<style>
- a{
- padding:3px;
- background-color: #ccc
-}
-</style>
-<html>
+
+<html lang="en">
   <head>
-    <meta charset="utf-8" lang="en">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      a{
+      padding:3px;
+      }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    
     <title>Odd Realm Botany</title>
   </head>
 
   <body>
-      <p>{% if current_user.is_authenticated %}
-        Logged in as {{ current_user.username }}.    <a href="{{ url_for('auth_logout') }}">Log out</a>
-      {% else %}
-      <a href="{{ url_for('auth_login') }}">Log in</a>  <a href="{{ url_for('auth_new_user') }}">Sign up</a>
-      {% endif %}</p>
-
-      <a href="{{ url_for('index') }}">To Main Page</a>  
-      <a href="{{ url_for('plant_new') }}">Add a plant</a>
-      <a href="{{ url_for('tag_new') }}">Create a new tag</a><br><br>
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+          <a class="navbar-brand navbar-dark" href="{{ url_for('index') }}">Odd Realm Botany</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                <span class="navbar-text">Logged in as {{ current_user.username }}</span>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    New
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ url_for('plant_new') }}">Plant</a>
+                    <a class="dropdown-item" href="{{ url_for('tag_new') }}">Tag</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('auth_logout') }}">Log Out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth_login') }}">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth_new_user') }}">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </nav>
+      <br>
   <body>
     {% block body %}
       <p>
-        Content.
+        Uh oh, I think something went wrong
       </p>
     {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

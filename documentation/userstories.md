@@ -2,7 +2,10 @@
  - As a logged-in user, I can add a plant into the database  
  - As a logged-in user, I can remove any plant I've added to the database  
  - As a logged-in user, I can edit my plants' attributes so that I don't have to remove and re-submit a plant whenever something needs changing  
+ - As a logged-in user, I can give my plants more attributes with a tag so that I can further distinguish them from each other
 
  - As a logged-in user, I want a way to re-order the list of plants so that I can organise them to my liking
 
- - As a logged-in user, I want to give my plants more attributes so that I can organise them further
+ - As a logged-in user, I want to remove tags from plants
+
+ - As a logged-in user, I want to edit and remove tags I've added to the database
