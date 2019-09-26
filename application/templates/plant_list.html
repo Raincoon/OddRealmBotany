@@ -17,28 +17,45 @@ tr:nth-child(odd) {
     background-color: #fff;
 }
 </style>
+<p>
+    You currently have 
+    {% if count is defined %}
+    {{ count }}
+    {% else %}
+    no
+    {% endif %} plant(s).
+</p>
 
 <table>
     <tr>
         <th>Name </th>
         <th>Mature time </th>
         <th>Tree?</th>
+        <th>Tags</th>
     </tr>
     {% for plant in plants %}
     <tr>
         <td>{{ plant.name }}</td>
         <td>{{ plant.mature_time }}h</td>
+        <td>
         {% if plant.is_tree == true %}
-        <td>✓</td>
+        ✓
         {% else %}
-        <td>x</td>
+        x
         {% endif %}
+        </td>
+        <td>
+        {% for tag in plant.tags %}
+            {{ tag.name }}  
+        {% endfor %}
+        </td>
         <td style="background-color: white">
             <form method="GET" action="{{ url_for('plant_edit', edit_id=plant.id) }}">
                     <input type="submit" value="Edit"/>
-            </form> 
-        </td>
-        <td style="background-color: white">
+            </form>
+            <form method="GET" action="{{ url_for('plant_tag', plant_id=plant.id) }}">
+                    <input type="submit" value="Add a Tag"/>
+            </form>
             <form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
                 <input type="submit" value="🗑️"/>
             </form>

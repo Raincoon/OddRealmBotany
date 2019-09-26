@@ -22,10 +22,19 @@ db = SQLAlchemy(app)
 from application import views
 from application.auth import views
 from application.plants import views
+from application.tags import views
 
 # database tables
 from application.plants import models
 from application.auth import models 
+from application.tags import models
+
+# Create tables
+try: 
+    db.create_all()
+except:
+    pass
+
 
 # login functionality
 from application.auth.models import User
@@ -42,9 +51,3 @@ login_manager.login_message = "You need to be logged in to use this functionalit
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
-
-# Create tables
-try: 
-    db.create_all()
-except:
-    pass

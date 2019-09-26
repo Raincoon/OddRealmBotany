@@ -1,16 +1,12 @@
 from application import db
+from application.models import Id
 
-class User(db.Model):
+class User(Id):
 
     __tablename__ = "account"
   
-    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-
-    # connection of plant data to its creator
-    plants = db.relationship("Plant", backref='account', lazy=True)
 
     def __init__(self, username, password):
         self.username = username

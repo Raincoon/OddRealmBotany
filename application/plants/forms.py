@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import validators, StringField, IntegerField, BooleanField
+from wtforms import validators, StringField, IntegerField, BooleanField, SelectField
 
 class PlantForm(FlaskForm):
     name = StringField("Name", [
@@ -13,4 +13,8 @@ class PlantForm(FlaskForm):
     class Meta:
         csrf = False
 
+class PlantTagForm(FlaskForm):
+    taglist = SelectField("Tag list", [validators.required()])
 
+    class Meta:
+        csrf = False

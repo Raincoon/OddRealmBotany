@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body%}
+<form method="POST" action="{{ url_for('plant_tag', plant_id=plant.id) }}">
+    <table>
+            <tr>
+                <td>
+                {{ form.taglist.label }}
+                {{ form.taglist }}
+                </td>
+            </tr>
+    </table>
+    <input type="submit" value="Add Tag"/>
+</form>
+{% endblock %}

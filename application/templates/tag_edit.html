@@ -1,6 +1,4 @@
 {% extends "layout.html" %}
-
-{% block body%}
 <style>
 table{
     width:50%;
@@ -8,14 +6,16 @@ table{
 }
 </style>
 
-
-<form method="POST" action="{{ url_for('plant_create') }}">
-        Name: {{ form.name }} 
-        <br>
-        Matures in how many hours? {{ form.mature_time }} 
-        <br>
-        This plant is a tree {{ form.is_tree }}
-        <br>
+{% block body%}
+<form method="POST" action="{{ url_for('tag_new'), edit_id=tag.id }}">
+        <table>
+            {% for field in form %}
+            <tr>
+                <td>{{ field.label }}</td>
+                <td>{{ field }}</td>
+            </tr>
+            {% endfor %}
+        </table>
         <!-- validator error list-->
         {% for field in form %}
         </ul>
@@ -24,6 +24,6 @@ table{
                 {% endfor %}
         </ul>
        {% endfor %}
-        <input type="submit" value="Add"/>
+        <input type="submit" value="Edit"/>
 </form>
 {% endblock %}
