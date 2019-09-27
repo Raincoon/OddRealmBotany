@@ -6,6 +6,8 @@
 
  - As a logged-in user, I want a way to re-order the list of plants so that I can organise them to my liking
 
+ - As a logged-in user, I want a way to change my password so that I may keep my account secure
+
  - As a logged-in user, I want to remove tags from plants
 
  - As a logged-in user, I want to edit and remove tags I've added to the database
