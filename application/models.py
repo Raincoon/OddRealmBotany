@@ -1,6 +1,6 @@
 from application import db
 
-class Id(db.Model):
+class Base(db.Model):
 
     __abstract__ = True
 

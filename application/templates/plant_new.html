@@ -2,20 +2,20 @@
 
 {% block body%}
 <form method="POST" action="{{ url_for('plant_new') }}">
-        Name: {{ form.name }} 
-        <br>
-        Matures in how many hours? {{ form.mature_time }} 
-        <br>
-        This plant is a tree {{ form.is_tree }}
-        <br>
-        <!-- validator error list-->
-        {% for field in form %}
-        </ul>
-                {% for error in field.errors %}
-                <li>{{ field.label}} {{ error }}</li>
-                {% endfor %}
-        </ul>
-       {% endfor %}
-        <input type="submit" value="Add"/>
+	Name: {{ form.name }} 
+	<br>
+	Matures in how many hours? {{ form.mature_time }} 
+	<br>
+	This plant is a tree {{ form.is_tree }}
+	<br>
+	<!-- validator error list-->
+	{% for field in form %}
+	</ul>
+		{% for error in field.errors %}
+		<li>{{ field.label}}: {{ error }}</li>
+		{% endfor %}
+	</ul>
+	{% endfor %}
+	{{ form.button }}
 </form>
 {% endblock %}

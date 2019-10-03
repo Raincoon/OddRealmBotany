@@ -5,15 +5,18 @@
   <table>
     {% for field in form %} <!--render login fields-->
     <tr>
-      <td>{{ field.label }}</td>
-      <td>{{ field }}</td>
+      {% if field.name!="button" %}
+        <td>{{ field.label }}</td>
+        <td>{{ field }}</td>
+      {% endif %}
     </tr>
     {% endfor %}
     <tr>
       <td colspan="2">
         {{ error }}<br>
-	<input type="submit" value="Login"/>
+        {{ form.button }}
       </td>
     </tr>
+  </table>
 </form>
 {% endblock %}

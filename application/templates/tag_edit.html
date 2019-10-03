@@ -1,29 +1,25 @@
 {% extends "layout.html" %}
-<style>
-table{
-    width:50%;
-    border-collapse: collapse;
-}
-</style>
 
 {% block body%}
 <form method="POST" action="{{ url_for('tag_new'), edit_id=tag.id }}">
-        <table>
-            {% for field in form %}
-            <tr>
+    <table>
+        {% for field in form %}
+        <tr>
+            {% if field.name!="button" %}
                 <td>{{ field.label }}</td>
                 <td>{{ field }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        <!-- validator error list-->
-        {% for field in form %}
-        </ul>
-                {% for error in field.errors %}
-                <li>{{ field.label}} {{ error }}</li>
-                {% endfor %}
-        </ul>
-       {% endfor %}
-        <input type="submit" value="Edit"/>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- validator error list-->
+    {% for field in form %}
+    </ul>
+        {% for error in field.errors %}
+        <li>{{ field.label}}: {{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+    {{ form.button }}
 </form>
 {% endblock %}

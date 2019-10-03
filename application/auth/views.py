@@ -9,16 +9,21 @@ from application.auth.forms import LoginForm
 # Adding new user accout
 @app.route("/auth/register", methods = ["GET", "POST"])
 def auth_new_user():
+    
     if request.method == "GET":
-        return render_template("auth/registerform.html", form = LoginForm())
+        # change button text
+        _form = LoginForm()
+        _form.button.label.text = "Submit"
+
+        return render_template("auth/registerform.html", form=_form)
     
     form = LoginForm(request.form)
     if not form.validate():
-        return render_template("auth/registerform.html", form = form)
+        return render_template("auth/registerform.html", form=form)
 
     # get data from form and hash password
     uname = form.username.data
-    pw = bcrypt.generate_password_hash(form.password.data, 13).decode('utf-8')
+    pw = bcrypt.generate_password_hash(form.password.data, 13).decode("utf-8")
 
     # check if username is available
     user = User.query.filter_by(username=uname).first()

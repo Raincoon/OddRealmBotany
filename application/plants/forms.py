@@ -1,20 +1,23 @@
 from flask_wtf import FlaskForm
-from wtforms import validators, StringField, IntegerField, BooleanField, SelectField
+from wtforms import validators, StringField, IntegerField, BooleanField, SelectField, SubmitField
 
 class PlantForm(FlaskForm):
     name = StringField("Name", [
         validators.required(), 
-        validators.Length(max=20)])
+        validators.Length(min=3,max=20)])
     mature_time = IntegerField("Mature Time", [
-        validators.NumberRange(min=1, max=9000),
-        validators.required()])
+        validators.NumberRange(min=1, max=5000, 
+            message="Must be an integer between 1 and 5000"),
+        validators.required(message="A number input is required")])
     is_tree = BooleanField("is_tree")
+    button = SubmitField("Submit") # default value, replaced when using the form for plant editing
 
     class Meta:
         csrf = False
 
 class PlantTagForm(FlaskForm):
-    taglist = SelectField("Tag list", [validators.required()])
+    taglist = SelectField("Select a Tag", [validators.required()])
+    button = SubmitField("Add")
 
     class Meta:
         csrf = False

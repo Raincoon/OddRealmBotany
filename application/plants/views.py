@@ -47,8 +47,13 @@ def plant_new():
 def plant_edit(edit_id):
 
     p = Plant.query.get(edit_id)
+
     if request.method == "GET":
-        return render_template("plant_edit.html", plant=p, form=PlantForm(obj=p))
+        # populating the form, changing button text
+        _form = PlantForm(obj=p)
+        _form.button.label.text = "Edit"
+        
+        return render_template("plant_edit.html", plant=p, form=_form)
 
     form = PlantForm(request.form)
     if not form.validate():

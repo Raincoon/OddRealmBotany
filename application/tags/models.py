@@ -1,7 +1,7 @@
 from application import db
-from application.models import Id
+from application.models import Base
 
-class Tag(Id):
+class Tag(Base):
 
     name = db.Column(db.String(50), nullable=False)
 

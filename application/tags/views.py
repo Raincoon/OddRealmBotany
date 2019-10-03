@@ -34,8 +34,13 @@ def tag_new():
 def tag_edit(edit_id):
 
     t = Tag.query.get(edit_id)
+
     if request.method == "GET":
-        return render_template("tag_edit.html", form=TagForm(obj=t))
+        # populating form, changing button text
+        _form = TagForm(obj=t)
+        _form.button.label.text = "Edit"
+
+        return render_template("tag_edit.html", form=_form)
 
     form = TagForm(request.form)
     if not form.validate():

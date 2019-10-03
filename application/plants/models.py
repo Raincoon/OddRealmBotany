@@ -1,5 +1,5 @@
 from application import db
-from application.models import Id
+from application.models import Base
 from application.tags.models import Tag
 
 from sqlalchemy.sql import text
@@ -10,7 +10,7 @@ helper = db.Table('plant_tag_helper',
     db.Column("tag_id", db.Integer, db.ForeignKey('tag.id'))
 )
 
-class Plant(Id):
+class Plant(Base):
 
     name = db.Column(db.String(50), nullable=False)
     mature_time = db.Column(db.Integer, nullable=False)
@@ -31,7 +31,7 @@ class Plant(Id):
     @staticmethod
     def count_plants_from_user(user_id):
         stmt = text("SELECT COUNT(Plant.id) FROM Plant"
-                    " INNER JOIN Account ON Account.id = :id").params(id=user_id)
+                    " WHERE owner_id = :id").params(id=user_id)
         result = db.engine.execute(stmt)
         
         # get the integer from result
