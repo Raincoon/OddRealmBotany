@@ -3,7 +3,7 @@
 {% block body %}
 <style>
 table{
-    width:50%;
+    width:70%;
     border-collapse: collapse;
 }
 th {
@@ -31,7 +31,10 @@ tr:nth-child(odd) {
         <th>Name </th>
         <th>Mature time </th>
         <th>Tree?</th>
-        <th>Tags</th>
+		<th>Tags</th>
+		<th></th>
+		<th></th>
+		<th></th>
     </tr>
     {% for plant in plants %}
     <tr>
@@ -49,15 +52,19 @@ tr:nth-child(odd) {
             {{ tag.name }}  
         {% endfor %}
         </td>
-        <td style="background-color: white">
+        <td>
             <form method="GET" action="{{ url_for('plant_edit', edit_id=plant.id) }}">
                     <input type="submit" value="Edit"/>
-            </form>
+			</form>
+		</td>
+		<td>
+			<form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
+                <input type="submit" value="Delete"/>
+			</form>
+		</td>
+		<td>
             <form method="GET" action="{{ url_for('plant_tag', plant_id=plant.id) }}">
-                    <input type="submit" value="Add a Tag"/>
-            </form>
-            <form method="POST" action="{{ url_for('plant_remove', remove_id=plant.id) }}">
-                <input type="submit" value="🗑️"/>
+                    <input type="submit" value="Tag"/>
             </form>
         </td>
     </tr>

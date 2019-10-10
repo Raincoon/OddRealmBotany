@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    
-    <title>Odd Realm Botany</title>
-  </head>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+		
+		<title>Odd Realm Botany</title>
+	</head>
 
-  <body>
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-          <a class="navbar-brand navbar-dark" href="{{ url_for('index') }}">Odd Realm Botany</a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                {% if current_user.is_authenticated %}
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    New
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{ url_for('plant_new') }}">Plant</a>
-                    <a class="dropdown-item" href="{{ url_for('tag_new') }}">Tag</a>
-                  </div>
-                </li>
-                <span class="navbar-text">Logged in as {{ current_user.username }}</span>
-                <a class="nav-link" href="{{ url_for('auth_logout') }}">Log Out</a>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth_login') }}">Log In</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth_new_user') }}">Sign Up</a>
-                </li>
-                {% endif %}
-            </ul>
-          </div>
-        </nav>
-      <br>
-  <body>
-    {% block body %}
-      <p>
-        Uh oh, I think something went wrong
-      </p>
-    {% endblock %}
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+	<body>
+			<nav class="navbar navbar-expand navbar-dark bg-dark">
+					<a class="navbar-brand navbar-dark" href="{{ url_for('index') }}">Odd Realm Botany</a>
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
+						{% if current_user.is_authenticated %}
+						<li class="form-inline dropdown">
+							<a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								New</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="{{ url_for('plant_new') }}">Plant</a>
+								<a class="dropdown-item" href="{{ url_for('tag_new') }}">Tag</a>
+							</div>
+						</li>
+						<div class="form-inline ml-auto">
+							<span class="navbar-text text-info">Logged in as {{ current_user.username }}</span>
+							<a class="nav-link text-light" href="{{ url_for('auth_logout') }}">Log Out</a>
+						</div>
+							{% else %}
+						<div class="form-inline ml-auto">
+								<a class="nav-link text-light" href="{{ url_for('auth_login') }}">Log In</a>
+								<a class="nav-link text-light" href="{{ url_for('auth_new_user') }}">Sign Up</a>
+							{% endif %}
+						</div>
+					</div>
+				</nav>
+			<br>
+	<body>
+		{% block body %}
+			<p>
+				Uh oh, I think something went wrong
+			</p>
+		{% endblock %}
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
 </html>
