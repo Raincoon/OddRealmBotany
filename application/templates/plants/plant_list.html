@@ -34,7 +34,8 @@ tr:nth-child(odd) {
 		<th>Tags</th>
 		<th></th>
 		<th></th>
-		<th></th>
+        <th></th>
+        <th></th>
     </tr>
     {% for plant in plants %}
     <tr>
@@ -65,6 +66,11 @@ tr:nth-child(odd) {
 		<td>
             <form method="GET" action="{{ url_for('plant_tag', plant_id=plant.id) }}">
                     <input type="submit" value="Tag"/>
+            </form>
+        </td>
+        <td>
+            <form method="GET" action="{{ url_for('plant_untag', plant_id=plant.id) }}">
+                    <input type="submit" value="Remove a Tag"/>
             </form>
         </td>
     </tr>

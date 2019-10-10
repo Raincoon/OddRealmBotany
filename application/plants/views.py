@@ -14,7 +14,7 @@ def plant_list():
     plants = Plant.query.filter_by(owner_id=current_user.id)
     plantcount = Plant.count_plants_from_user(current_user.id)
 
-    return render_template("plant_list.html", plants = plants, count = plantcount)
+    return render_template("plants/plant_list.html", plants = plants, count = plantcount)
 
 # adding a plant entry
 @app.route("/plants/new", methods=["GET","POST"])
@@ -22,12 +22,12 @@ def plant_list():
 def plant_new():
 
     if request.method == "GET":
-        return render_template("plant_new.html", form=PlantForm())
+        return render_template("plants/plant_new.html", form=PlantForm())
 
     form = PlantForm(request.form)
 
     if not form.validate():
-        return render_template("plant_new.html", form=form)
+        return render_template("plants/plant_new.html", form=form)
 
     name = form.name.data
     hrs = form.mature_time.data
@@ -53,11 +53,11 @@ def plant_edit(edit_id):
         _form = PlantForm(obj=p)
         _form.button.label.text = "Edit"
         
-        return render_template("plant_edit.html", plant=p, form=_form)
+        return render_template("plants/plant_edit.html", plant=p, form=_form)
 
     form = PlantForm(request.form)
     if not form.validate():
-            return render_template("plant_edit.html", plant=p, form=form)
+            return render_template("plants/plant_edit.html", plant=p, form=form)
 
     name = form.name.data
     hrs = form.mature_time.data
@@ -93,7 +93,7 @@ def plant_tag(plant_id):
 
     if request.method == "GET":
         form.taglist.choices = tag_list
-        return render_template("plant_tag.html",plant=p, form=form)
+        return render_template("plants/plant_tag.html",plant=p, form=form)
     
     form = PlantTagForm(request.form)
     tag_id = form.taglist.data
@@ -105,15 +105,26 @@ def plant_tag(plant_id):
     db.session().commit()
     return redirect(url_for("plant_list"))
 
-# un-tagging a plant, unimplemented
-@app.route("/plants/untag/<plant_id>", methods=["POST"])
+# un-tagging a plant
+@app.route("/plants/untag/<plant_id>", methods=["GET","POST"])
 @login_required
-def plant_untag(plant_id, tag_id):
-
+def plant_untag(plant_id):
     p = Plant.query.get(plant_id)
+    form = PlantTagForm()
+    tags = p.tags
+    tag_list = [(tag.id, tag.name) for tag in tags]
+
+    if request.method == "GET":
+        form.taglist.choices = tag_list
+        # changing button text
+        form.button.label.text = "Remove"
+        return render_template("plants/plant_untag.html",plant=p, form=form)
+
+    form = PlantTagForm(request.form)
+    tag_id = form.taglist.data
     t = Tag.query.get(tag_id)
 
     # remove the tag
-    p.tags.delete(t)
+    p.tags.remove(t)
     db.session().commit()
     return redirect(url_for("plant_list"))

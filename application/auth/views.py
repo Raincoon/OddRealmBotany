@@ -4,24 +4,20 @@ from flask_login import login_user, logout_user
 from application import app, db
 from application import bcrypt
 from application.auth.models import User
-from application.auth.forms import LoginForm
+from application.auth.forms import LoginForm, SignupForm
 
 # Adding new user accout
 @app.route("/auth/register", methods = ["GET", "POST"])
 def auth_new_user():
     
     if request.method == "GET":
-        # change button text
-        _form = LoginForm()
-        _form.button.label.text = "Submit"
-
-        return render_template("auth/registerform.html", form=_form)
+        return render_template("auth/registerform.html", form=SignupForm())
     
-    form = LoginForm(request.form)
+    form = SignupForm(request.form)
     if not form.validate():
         return render_template("auth/registerform.html", form=form)
 
-    # get data from form and hash password
+    # get form data and hash password
     uname = form.username.data
     pw = bcrypt.generate_password_hash(form.password.data, 13).decode("utf-8")
 

@@ -2,12 +2,14 @@
 
 {% block body%}
 <form method="POST" action="{{ url_for('plant_tag', plant_id=plant.id) }}">
-	<table>
-		<tr>
-			<td>{{ form.taglist.label }}</td>
-			<td>{{ form.taglist }}</td>
-		</tr>
-	</table>
-	{{ form.button }}
+	<p>
+		<table>
+			<tr>
+				<td>{{ form.taglist.label }}</td>
+				<td>{{ form.taglist }}</td>
+			</tr>
+		</table>
+		{{ form.button }}
+	</p>
 </form>
 {% endblock %}

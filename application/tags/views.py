@@ -12,11 +12,11 @@ def tag_new():
 
     # forms
     if request.method == "GET":
-        return render_template("tag_new.html", form=TagForm())
+        return render_template("tags/tag_new.html", form=TagForm())
     
     form = TagForm(request.form)
     if not form.validate():
-        return render_template("tag_new.html", form=form)
+        return render_template("tags/tag_new.html", form=form)
 
     name = form.name.data
 
@@ -40,11 +40,11 @@ def tag_edit(edit_id):
         _form = TagForm(obj=t)
         _form.button.label.text = "Edit"
 
-        return render_template("tag_edit.html", form=_form)
+        return render_template("tags/tag_edit.html", form=_form)
 
     form = TagForm(request.form)
     if not form.validate():
-        return render_template("tag_edit.html", form=form)
+        return render_template("tags/tag_edit.html", form=form)
     
     name = form.name.data
     

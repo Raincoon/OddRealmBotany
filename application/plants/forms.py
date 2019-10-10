@@ -6,9 +6,8 @@ class PlantForm(FlaskForm):
         validators.required(), 
         validators.Length(min=3,max=20)])
     mature_time = IntegerField("Mature Time", [
-        validators.NumberRange(min=1, max=5000, 
-            message="Must be an integer between 1 and 5000"),
-        validators.required(message="A number input is required")])
+        validators.NumberRange(min=1, max=120),
+        validators.required(message="A number input between 0 and 120 is required")])
     is_tree = BooleanField("is_tree")
     button = SubmitField("Submit") # default value, replaced when using the form for plant editing
 
