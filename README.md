@@ -21,6 +21,7 @@ You may either log in with username: 'user' password: 'password' or create your 
 [User guide](./documentation/user_guide.md)  
 [How to install the project locally](./documentation/installguide.md)  
 [Link to the user stories file](./documentation/userstories.md)
+[Things that were left on the to-do list](./documentation/the_todo_list.md)
 
 
 
