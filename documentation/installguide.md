@@ -1,5 +1,5 @@
 
-**Note: These instructions are written primarily for Ubuntu Linux.  
+**Note: These instructions are written primarily for Ubuntu Linux.**  
 **For other operating systems:** you may need to change the commands used for activating the virtual environment, but all pip and heroku commands should be the same.  
 Please refer to a search engine for installation the following on your OS:  
 - Python 3 (or higher), which should come built in with pip and [venv](https://docs.python.org/3/tutorial/venv.html).  
