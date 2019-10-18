@@ -46,8 +46,9 @@ def tag_new():
 @app.route("/tags/edit/<edit_id>", methods=["GET","POST"])
 @login_required
 def tag_edit(edit_id):
-
     t = Tag.query.get(edit_id)
+    if not t.is_owner(current_user.id):
+        return redirect(url_for("index"))
 
     if request.method == "GET":
         # populating form, changing button text
@@ -72,8 +73,10 @@ def tag_edit(edit_id):
 @app.route("/tags/remove/<remove_id>/", methods=["POST"])
 @login_required
 def tag_remove(remove_id):
-
     t = Tag.query.get(remove_id)
+    if not t.is_owner(current_user.id):
+        
+        return redirect(url_for("index"))
 
     db.session().delete(t)
     db.session().commit()

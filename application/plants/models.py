@@ -28,6 +28,9 @@ class Plant(Base):
         self.mature_time = grow_time_hrs
         self.is_tree = is_tree
     
+    def is_owner(self, user_id):
+        return user_id == self.owner_id
+
     @staticmethod
     def count_plants_from_user(user_id):
         stmt = text("SELECT COUNT(Plant.id) FROM Plant"

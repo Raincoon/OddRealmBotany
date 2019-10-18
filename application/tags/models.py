@@ -11,3 +11,6 @@ class Tag(Base):
 
     def __init__(self, name):
         self.name = name
+
+    def is_owner(self, user_id):
+        return user_id == self.owner_id

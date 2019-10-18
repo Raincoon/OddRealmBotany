@@ -45,8 +45,9 @@ def plant_new():
 @app.route("/plants/<edit_id>", methods=["GET","POST"])
 @login_required
 def plant_edit(edit_id):
-
     p = Plant.query.get(edit_id)
+    if not p.is_owner(current_user.id):
+        return redirect(url_for("index")) 
 
     if request.method == "GET":
         # populating the form, changing button text
@@ -75,8 +76,9 @@ def plant_edit(edit_id):
 @app.route("/plants/remove/<remove_id>/", methods=["POST"])
 @login_required
 def plant_remove(remove_id):
-
     p = Plant.query.get(remove_id)
+    if not p.is_owner(current_user.id):
+        return redirect(url_for("index"))
 
     db.session().delete(p)
     db.session().commit()
@@ -87,6 +89,9 @@ def plant_remove(remove_id):
 @login_required
 def plant_tag(plant_id):
     p = Plant.query.get(plant_id)
+    if not p.is_owner(current_user.id):
+        return redirect(url_for("index"))
+
     form = PlantTagForm()
     tags = Tag.query.filter_by(owner_id=current_user.id)
     tag_list = [(tag.id, tag.name) for tag in tags]
@@ -110,6 +115,9 @@ def plant_tag(plant_id):
 @login_required
 def plant_untag(plant_id):
     p = Plant.query.get(plant_id)
+    if not p.is_owner(current_user.id):
+        return redirect(url_for("index"))
+        
     form = PlantTagForm()
     tags = p.tags
     tag_list = [(tag.id, tag.name) for tag in tags]
