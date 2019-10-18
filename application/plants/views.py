@@ -12,7 +12,7 @@ from application.tags.models import Tag
 def plant_list():
 
     plants = Plant.query.filter_by(owner_id=current_user.id)
-    plantcount = Plant.count_plants_from_user(current_user.id)
+    plantcount = Plant.count_tags_on_plants(current_user.id)
 
     return render_template("plants/plant_list.html", plants = plants, count = plantcount)
 

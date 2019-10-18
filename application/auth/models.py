@@ -5,8 +5,8 @@ class User(Base):
 
     __tablename__ = "account"
   
-    username = db.Column(db.String(144), nullable=False)
-    password = db.Column(db.String(144), nullable=False)
+    username = db.Column(db.String(25), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
 
     def __init__(self, username, password):
         self.username = username

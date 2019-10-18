@@ -32,9 +32,11 @@ class Plant(Base):
         return user_id == self.owner_id
 
     @staticmethod
-    def count_plants_from_user(user_id):
-        stmt = text("SELECT COUNT(Plant.id) FROM Plant"
-                    " WHERE owner_id = :id").params(id=user_id)
+    def count_tags_on_plants(user_id):
+        stmt = text("SELECT COUNT(Plant.id) FROM Plant "
+                    "JOIN plant_tag_helper "
+                    "ON Plant.id = plant_tag_helper.plant_id"
+                    " WHERE Plant.owner_id = :id").params(id=user_id)
         result = db.engine.execute(stmt)
         
         # get the integer from result

@@ -15,7 +15,7 @@ class SignupForm(FlaskForm):
         validators.Length(min=2,max=25)])
     password = PasswordField("Password", [
         validators.required(),
-        validators.Length(min=4,max=64)])
+        validators.Length(min=4,max=80)])
     button = SubmitField("Sign Up")
 
     class Meta:

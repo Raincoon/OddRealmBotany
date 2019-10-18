@@ -2,12 +2,12 @@
 
 {% block body %}
 <p>
-    You currently have 
+    You have assigned 
     {% if count is defined %}
     {{ count }}
     {% else %}
     no
-    {% endif %} plant(s).
+    {% endif %} tag(s) to your plants.
 </p>
 
 {% include "plants/plant_table.html" %}
