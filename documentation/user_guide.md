@@ -10,7 +10,7 @@ Once you have logged in, you may begin by adding a plant or a tag from the dropd
 
 ### Other functionality
 To edit or remove a plant, use the `Edit` or `Delete` buttons for their respective actions.  
-If you wish to add a tag you have created to one of your plants, click the `Tag` button on the entry you wish to add a tag to; You will be provided a list of all the tags you have created, simply select the one you want and click the `Add` button.  
-Removing tags from a plant functions similarly, just click `Remove a Tag` and select the tag you wish to remove.  
+If you wish to add a tag you have created to one of your plants, click the `Tag` button on the entry you wish to add a tag to; You will be provided a list of your tags, just select the one you want and click the `Add` button.  
+Removing tags from a plant functions similarly: click `Remove a Tag` and select the tag you wish to remove.  
 
 To view all plants with a certain tag, click on the tag's name and you will be redirected to that tag's page. This page also provides the links to `Edit` or `Delete` the specified tag.
