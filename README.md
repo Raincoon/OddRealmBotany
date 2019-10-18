@@ -18,7 +18,7 @@ Current major features
 Short instructions for Heroku:  
 You may either log in with username: 'user' password: 'password' or create your own account by clicking on the 'Sign up' link.  
 (If you do create your own test user, keep in mind that while passwords are stored as salted hashes, usernames are stored in plaintext.)  
-[User guide](./documentation/user_guide.md)
+[User guide](./documentation/user_guide.md)  
 [How to install the project locally](./documentation/installguide.md)  
 [Link to the user stories file](./documentation/userstories.md)
 
