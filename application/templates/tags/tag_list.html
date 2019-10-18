@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Tag: {{ tag.name }}</h1>
+<!-- buttons for tag options -->
+
+
+<table style="width:0">
+    <td>
+        <form method="GET" action="{{ url_for('tag_edit', edit_id=tag.id) }}">
+            <input type="submit" value="Edit"/>
+        </form>
+    </td>
+    <td>
+        <form method="POST" action="{{ url_for('tag_remove', remove_id=tag.id) }}">
+            <input type="submit" value="Delete"/>
+        </form>
+    </td>
+</table>
+<br>
+<p>Plants under tag: {{ tag.name }}</p>
+<!-- list plants with specified tag -->
+{% include "plants/plant_table.html" %}
+
+{% endblock %}

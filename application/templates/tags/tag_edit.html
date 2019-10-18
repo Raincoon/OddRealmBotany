@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body%}
-<form method="POST" action="{{ url_for('tag_new'), edit_id=tag.id }}">
+<form method="POST" action="{{ url_for('tag_edit', edit_id=tag.id) }}">
 	<table>
 		{% for field in form %}
 		<tr>

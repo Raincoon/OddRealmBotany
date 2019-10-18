@@ -6,7 +6,7 @@ from application.plants.models import Plant
 from application.plants.forms import PlantForm, PlantTagForm
 from application.tags.models import Tag
 
-# plant list of user's plants
+# list of all user's plants
 @app.route("/garden", methods=["GET"])
 @login_required
 def plant_list():
