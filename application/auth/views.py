@@ -30,7 +30,7 @@ def auth_new_user():
         db.session().add(a)
         db.session().commit()
 
-        return redirect(url_for("index"))
+        return redirect(url_for("auth_login"))
     else:
         return render_template("auth/registerform.html", form = form, 
                                 error = "Please select another username")

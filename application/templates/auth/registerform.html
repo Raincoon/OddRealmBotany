@@ -3,23 +3,6 @@
 {% block body %}
 <form method="POST" action="{{ url_for('auth_new_user') }}">
 	<p>Register a new user:</p>
-	<table>
-		{% for field in form %} <!--render form fields-->
-		<tr>
-			<td></td>
-			{% if field.name!="button" %}
-				<td>{{ field.label }}</td>
-				<td>{{ field }}</td>
-				<td>
-					{% for error in field.errors %}
-						{{ error }} 
-					{% endfor %}
-				</td>
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</table>
-	{{ error }}<br>
-	{{ form.button }}
+	{% include "form.html" %}
 </form>
 {% endblock %}

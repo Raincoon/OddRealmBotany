@@ -1,0 +1,19 @@
+<table>
+    {% for field in form %} <!-- fields followed by potential validator errors-->
+    <tr>
+        <td></td>
+        {% if field.name!="button" %}
+            <td>{{ field.label }}</td>
+            <td>{{ field }}</td>
+            <td>
+                {% for error in field.errors %}
+                    {{ error }} 
+                {% endfor %}
+            </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+<!-- any manually assigned errors go here -->
+{{ error }}<br>
+{{ form.button }}

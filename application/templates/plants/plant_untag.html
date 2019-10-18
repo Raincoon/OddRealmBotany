@@ -3,13 +3,7 @@
 {% block body%}
 <form method="POST" action="{{ url_for('plant_untag', plant_id=plant.id) }}">
 	<p>
-		<table style="width:30%">
-			<tr>
-				<td>{{ form.taglist.label }}</td>
-				<td>{{ form.taglist }}</td>
-			</tr>
-		</table>
-		{{ form.button }}
+		{% include "plants/tagform.html" %}
 	</p>
 </form>
 {% endblock %}
