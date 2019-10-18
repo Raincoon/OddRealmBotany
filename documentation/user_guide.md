@@ -1,4 +1,4 @@
-This guide runs you through the basic functionality of the project. If you need to run the files locally or on your own Heroku server, see the [install guide](./documentation/installguide.md) first.  
+This guide runs you through the basic functionality of the project. If you need to run the files locally or on your own Heroku instance, see the [install guide](./documentation/installguide.md) first.  
 
 ### Registration and logging in
 There are links for both logging in and signing up in the navigation bar at the top of the page.  
