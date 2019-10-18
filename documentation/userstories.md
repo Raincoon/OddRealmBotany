@@ -2,9 +2,9 @@
  This file details user stories and the SQL queries related to them.
  
  #### As a user, I can register and log in so that I can view plants I've added into the database:
- - registration
+ - registration  
 `INSERT INTO account (username, password) VALUES (?, ?)`  
- - logging in
+ - logging in  
 `SELECT account.id AS account_id,`  
 `account.username AS username,`  
 `account.password AS password`  
@@ -24,14 +24,14 @@
 `WHERE plant.owner_id = ?`  
 
 (Also finds all tags for a plant for listing purposes)
-`SELECT tag.id AS tag_id,`
-`tag.name AS tag_name,`
-`tag.owner_id AS tag_owner_id,`
-`tagged.plant_id AS tagged_plant_id` 
-`FROM (SELECT plant.id AS plant_id FROM plant WHERE plant.owner_id = ?)AS tagged`
-    `JOIN plant_tag_helper ON tagged.plant_id = plant_tag_helper.plant_id`
-    `JOIN tag ON tag.id = plant_tag_helper.tag_id`
-    `ORDER BY tagged.plant_id`
+`SELECT tag.id AS tag_id,`  
+`tag.name AS tag_name,`  
+`tag.owner_id AS tag_owner_id,`  
+`tagged.plant_id AS tagged_plant_id`   
+`FROM (SELECT plant.id AS plant_id FROM plant WHERE plant.owner_id = ?)AS tagged`  
+    `JOIN plant_tag_helper ON tagged.plant_id = plant_tag_helper.plant_id`  
+    `JOIN tag ON tag.id = plant_tag_helper.tag_id`  
+    `ORDER BY tagged.plant_id`  
 
  #### As a logged-in user, I can remove any plant I've added to the database  
 `DELETE FROM plant WHERE plant.id = ?`  
@@ -55,18 +55,18 @@
  - editing
 `UPDATE tag SET name=? WHERE tag.id = ?`
  - removing
-`DELETE FROM plant_tag_helper WHERE plant_tag_helper.tag_id = ?`
+`DELETE FROM plant_tag_helper WHERE plant_tag_helper.tag_id = ?` 
 `DELETE FROM tag WHERE tag.id = ?`
 
  #### As a logged-in user, I can list all of the plants under a tag I've created
-`SELECT plant.id AS plant_id,`
-`plant.name AS plant_name,`
-`plant.mature_time AS plant_mature_time,`
-`plant.is_tree AS plant_is_tree,`
-`plant.owner_id AS plant_owner_id`
-`FROM plant` 
-`WHERE plant.owner_id = ?`
-    `AND (EXISTS(`
-        `SELECT 1 FROM plant_tag_helper, tag` 
-        `WHERE plant.id = plant_tag_helper.plant_id`
-            `AND tag.id = plant_tag_helper.tag_id AND tag.id = ?))`
+`SELECT plant.id AS plant_id,`  
+`plant.name AS plant_name,`  
+`plant.mature_time AS plant_mature_time,`  
+`plant.is_tree AS plant_is_tree,`  
+`plant.owner_id AS plant_owner_id`  
+`FROM plant`  
+`WHERE plant.owner_id = ?`  
+    `AND (EXISTS(`  
+        `SELECT 1 FROM plant_tag_helper, tag`  
+        `WHERE plant.id = plant_tag_helper.plant_id`  
+            `AND tag.id = plant_tag_helper.tag_id AND tag.id = ?))`  
